@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data1:/var/lib/postgresql/data/
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
@@ -25,7 +25,7 @@ services:
     depends_on:
       - db
     volumes:
-      - pgadmin_data:/var/lib/pgadmin/
+      - pgadmin_data1:/var/lib/pgadmin/
 
   app:
     container_name: app
@@ -40,5 +40,5 @@ services:
       - db
 
 volumes:
-  postgres_data:
-  pgadmin_data:
+  postgres_data1:
+  pgadmin_data1:
