@@ -24,3 +24,31 @@ app.add_middleware(DBSessionMiddleware, db_url=os.environ['DATABASE_URL'])
 @app.get("/")
 async def root():
     return {"message": "Only for checking ok"}
+
+
+@app.post("/add-user", response_model=SchemaUser)
+def add_user(user: SchemaUser):
+    db_user = User(email=user.email, phone=user.phone, age=user.age)
+    db.session.add(db_user)
+    db.session.commit()
+    return db_user
+
+
+@app.get("/get-user")
+def get_user():
+    users = db.session.query(User).all()
+    return users
+
+
+@app.post("/add-album", response_model=SchemaAlbum)
+def add_album(album: SchemaAlbum):
+    db_album = Album(image=album.image, user_id=album.user_id)
+    db.session.add(db_album)
+    db.session.commit()
+    return db_album
+
+
+@app.get("/get-album")
+def get_album():
+    return db.session.query(Album).all()
+
