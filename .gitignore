@@ -220,3 +220,4 @@ dump.sql
 !*/migrations/last._py
 data
 extra.png
+.vscode
