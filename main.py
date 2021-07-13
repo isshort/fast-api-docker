@@ -21,7 +21,7 @@ from models.blog import (
 from schemas.blog import (
     User as SchemaUser,
     Album as SchemaAlbum,
-    News as SchemaNews
+    NewsSchema
 )
 load_dotenv(".env")
 

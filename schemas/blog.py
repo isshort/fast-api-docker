@@ -34,7 +34,7 @@ class Album(BaseModel):
         orm_mode = True
 
 
-class News(BaseModel):
+class NewsSchema(BaseModel):
     title: str
     description: str
 

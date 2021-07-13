@@ -6,3 +6,6 @@
     DB_NAME=post_db
     PGADMIN_EMAIL=admin@admin.com
     PGADMIN_PASSWORD=admin
+    
+    SECRET_KEY="namatullahwahidiisgoodforYouKNamat"
+    ALGORITHM=HS256

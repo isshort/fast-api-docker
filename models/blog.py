@@ -26,7 +26,7 @@ class Album(Base):
 
 
 class News(Base):
-    __tablename__ = "Document"
+    __tablename__ = "new"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-    Description = Column(String)
+    description = Column(String)
