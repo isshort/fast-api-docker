@@ -1,9 +1,15 @@
 import os
 import uvicorn
+from starlette.graphql import GraphQLApp
+import graphene
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi_sqlalchemy import DBSessionMiddleware, db
 
+from phql.blog import (
+    CreateUserMutations,
+
+)
 from models.blog import (
     User,
     Album,
@@ -52,3 +58,5 @@ def add_album(album: SchemaAlbum):
 def get_album():
     return db.session.query(Album).all()
 
+
+app.add_route("/phql", GraphQLApp(schema=graphene.Schema(mutation=CreateUserMutations)))

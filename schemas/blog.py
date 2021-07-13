@@ -5,6 +5,7 @@ class User(BaseModel):
     email: str
     phone: str
     age: int
+    password:str
 
     class Config:
         orm_mode = True
