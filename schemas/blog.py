@@ -13,6 +13,14 @@ class User(BaseModel):
         orm_mode = True
 
 
+class UserAuthenticateSchema(BaseModel):
+    email: str
+    password: str
+
+    class Config:
+        orm_mode = True
+
+
 class UserModelSchema(SQLAlchemyObjectType):
     class Meta:
         model = UserModel
