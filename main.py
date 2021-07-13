@@ -10,6 +10,9 @@ from phql.blog import (
     CreateUserMutations,
 
 )
+from phql.query_data import(
+    Query,
+)
 from models.blog import (
     User,
     Album,
@@ -20,7 +23,6 @@ from schemas.blog import (
     Album as SchemaAlbum,
     News as SchemaNews
 )
-
 load_dotenv(".env")
 
 app = FastAPI()
@@ -59,4 +61,4 @@ def get_album():
     return db.session.query(Album).all()
 
 
-app.add_route("/phql", GraphQLApp(schema=graphene.Schema(mutation=CreateUserMutations)))
+app.add_route("/phql", GraphQLApp(schema=graphene.Schema(query=Query, mutation=CreateUserMutations)))
